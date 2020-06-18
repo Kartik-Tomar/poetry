@@ -3,17 +3,7 @@ import React, { useState } from "react";
 import { LOCALES } from "../i18n";
 import translate from "../i18n/translate";
 
-function NavBar({ language, setLanguage }) {
-  const [mode, setMode] = useState("day");
-
-  const onClickMode = () => {
-    if (mode === "day") {
-      setMode("night");
-    } else {
-      setMode("day");
-    }
-  };
-
+function NavBar({ language, setLanguage, theme, setTheme }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white sticky-top">
       <a className="navbar-brand" href="/">
@@ -115,13 +105,19 @@ function NavBar({ language, setLanguage }) {
           <li className="nav-item">
             <p
               className="nav-link mb-0"
-              onClick={onClickMode}
+              onClick={() => {
+                if (theme === "light") {
+                  setTheme("dark");
+                } else {
+                  setTheme("light");
+                }
+              }}
               style={{ fontSize: "0.9rem" }}
             >
-              {mode === "day" ? (
-                <i className="fa fa-sun-o fa-2x" aria-hidden="true"></i>
-              ) : (
+              {theme === "light" ? (
                 <i className="fa fa-moon-o fa-2x" aria-hidden="true"></i>
+              ) : (
+                <i className="fa fa-sun-o fa-2x" aria-hidden="true"></i>
               )}
             </p>
           </li>

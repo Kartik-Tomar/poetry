@@ -7,8 +7,11 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 
+import "./App.css";
+
 function App() {
   const [locale, setLocale] = useState(LOCALES.ENGLISH);
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     if (localStorage.getItem("language") !== null) {
@@ -16,7 +19,18 @@ function App() {
     } else {
       localStorage.setItem("language", locale);
     }
+    if (localStorage.getItem("theme") !== null) {
+      setTheme(localStorage.getItem("theme"));
+    } else {
+      localStorage.setItem("theme", theme);
+    }
   }, []);
+
+  useEffect(() => {
+    if (localStorage.getItem("theme") !== theme) {
+      localStorage.setItem("theme", theme);
+    }
+  }, [theme]);
 
   useEffect(() => {
     if (localStorage.getItem("language") !== locale) {
@@ -25,13 +39,20 @@ function App() {
   }, [locale]);
 
   return (
-    <I18Provider locale={locale}>
-      <Router>
-        <NavBar setLanguage={setLocale} language={locale} />
-        <Route exact path="/" component={HomePage} />
-        <Footer />
-      </Router>
-    </I18Provider>
+    <div data-theme={theme}>
+      <I18Provider locale={locale}>
+        <Router>
+          <NavBar
+            setLanguage={setLocale}
+            language={locale}
+            setTheme={setTheme}
+            theme={theme}
+          />
+          <Route exact path="/" component={HomePage} />
+          <Footer />
+        </Router>
+      </I18Provider>
+    </div>
   );
 }
 

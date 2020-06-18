@@ -5,7 +5,7 @@ import translate from "../i18n/translate";
 const Footer = () => {
   return (
     <div>
-      <footer className="my-4 pt-5 text-muted text-center text-small">
+      <footer className="mt-4 pb-0 pt-5 text-muted text-center text-small">
         <ul className="list-inline">
           <li className="list-inline-item mx-4">
             <a href="/" className="text-secondary">
@@ -23,7 +23,9 @@ const Footer = () => {
             </a>
           </li>
         </ul>
-        <h5 className="mb-1 ">{translate("Copyright", { value: "POETRY" })}</h5>
+        <h5 className="mb-0 pb-4">
+          {translate("Copyright", { value: "POETRY" })}
+        </h5>
       </footer>
     </div>
   );
