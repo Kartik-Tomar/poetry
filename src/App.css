@@ -1,5 +1,5 @@
 [data-theme="dark"] {
-  background-color: #343a40 !important;
+  background-color: #333 !important;
   color: #eee;
 }
 
@@ -8,7 +8,7 @@
 }
 
 [data-theme="dark"] .bg-white {
-  background-color: #343a40 !important;
+  background-color: #333 !important;
 }
 
 [data-theme="dark"] .bg-black {
@@ -16,5 +16,17 @@
 }
 
 [data-theme="dark"] .jumbotron {
-  background-color: #333 !important;
+  background-color: #343a40 !important;
+}
+
+[data-theme="dark"] a {
+  color: #eee !important;
+}
+
+[data-theme="dark"] i {
+  color: #eee !important;
+}
+
+[data-theme="dark"] button {
+  color: #eee !important;
 }
